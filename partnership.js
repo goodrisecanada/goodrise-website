@@ -1,4 +1,4 @@
-/* Demo-only UI. No API clients, analytics, storage of form data, or network submissions. */
+/* Marketing homepage UI. Inquiries use the existing /apply/ page. */
 (() => {
   const vi = {
     skip: "Đến nội dung chính",
@@ -118,11 +118,11 @@
       "Cùng trao đổi ngắn về tiệm, câu chuyện của các em và những gì chúng tôi có thể thiết lập cho bạn.",
     meetingNote: "Chúng ta sẽ trao đổi chi tiết và giá trong buổi gặp.",
     formTitle: "Trao đổi thêm",
-    formNote: "Biểu mẫu xem trước. Không gửi hay lưu thông tin.",
+    formNote: "Giới thiệu đôi nét về tiệm qua trang liên hệ của chúng tôi. Chúng ta có thể trao đổi về chương trình hợp tác và sắp xếp một buổi gặp ngắn.",
     nameLabel: "Tên của bạn",
     businessLabel: "Tên tiệm",
     emailLabel: "Email",
-    formButton: "Xem trước yêu cầu",
+    formButton: "Hẹn trao đổi ngắn",
     formSuccess:
       "Yêu cầu mẫu đã sẵn sàng. Bản demo này không gửi hay lưu thông tin của bạn. Khi triển khai chính thức, đây sẽ là nơi gửi yêu cầu trao đổi.",
     tagline: "Cùng vươn lên. Cùng sẻ chia.",
@@ -332,16 +332,6 @@
     }
   });
   dialog.addEventListener("close", () => lastImageButton?.focus());
-  const form = document.querySelector("#meeting-form");
-  form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    if (!form.reportValidity()) return;
-    requestPreviewed = true;
-    document.querySelector("#form-status").textContent = label("formSuccess");
-    // Intentionally do not serialize, persist, transmit or log these values.
-    form.reset();
-  });
-  form.querySelector('button[type="submit"]').disabled = false;
   document.querySelector("[data-year]").textContent = String(
     new Date().getFullYear(),
   );
